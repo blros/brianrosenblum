@@ -1,0 +1,16 @@
+<ul>
+{% assign project-list = site.data.projects | where: "category", include.category %}
+{% for project in project-list %}
+<li>
+
+ 
+        <{{ include.heading }}>
+          {% if project.url %}<a href="{{ project.url }}">{{ project.title }}</a>{% else %}<span>{{ project.title }}</span>{% endif %}{% if project.dates %}<span style="font-size:0.775em;font-style:italic;"><br />({{ project.dates }})</span>{% endif %}
+        </{{ include.heading }}>
+        <span>{{ project.blurb | markdownify }}</span>
+    </li> 
+{% endfor %}
+</ul>
+
+
+
